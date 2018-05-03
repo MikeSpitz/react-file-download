@@ -1,5 +1,5 @@
 module.exports = function(data, filename, mime) {
-    if (typof(data) === "string") {
+    if (typeof(data) === "string") {
         data = data.replace(/\n/g, "\r\n");
     }
     var blob = new Blob([data], {type: mime || 'application/octet-stream'});
