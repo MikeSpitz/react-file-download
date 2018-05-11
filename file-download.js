@@ -1,4 +1,7 @@
 module.exports = function(data, filename, mime) {
+    if (typeof(data) === "string") {
+        data = data.replace(/\n/g, "\r\n");
+    }
     var blob = new Blob([data], {type: mime || 'application/octet-stream'});
     if (typeof window.navigator.msSaveBlob !== 'undefined') {
         // IE workaround for "HTML7007: One or more blob URLs were 
